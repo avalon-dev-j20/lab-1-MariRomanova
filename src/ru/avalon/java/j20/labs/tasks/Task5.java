@@ -3,8 +3,7 @@ package ru.avalon.java.j20.labs.tasks;
 import ru.avalon.java.j20.labs.Task;
 import ru.avalon.java.j20.labs.core.RandomArrayFactory;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Задание №5.
@@ -25,9 +24,15 @@ public class Task5 implements Task {
     public void run() {
         final int[] array = arrayFactory.getInstance(20);
 
-        List<Integer> list = null;
+        Integer[] objectArray = new Integer[array.length]; // преобразование в массив Integer для последующего использования в обобщенных методах
+        for(int ctr = 0; ctr < array.length; ctr++) {
+            objectArray[ctr] = Integer.valueOf(array[ctr]);
+        }
 
-        Set<Integer> set = null;
+        List<Integer> list = Arrays.asList(objectArray);
+
+        Set<Integer> set = new HashSet<Integer>();
+        Collections.addAll(set, objectArray);
 
         /**
          * TODO(Студент): Выполните задание №5

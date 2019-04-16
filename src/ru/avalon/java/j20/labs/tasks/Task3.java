@@ -1,6 +1,7 @@
 package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
+import ru.avalon.java.j20.labs.models.Fibonacci;
 
 import java.util.Iterator;
 
@@ -25,6 +26,7 @@ public class Task3 implements Task {
          *
          *    Найти сумму 20 первых чисел последовательности Фибоначчи:
          *
+         *
          * 2. Создать экземпляр класса Fibonacci так, чтобы он
          *    возвращал последовательность чисел Фибоначчи длиной
          *    в 20 элементов.
@@ -34,5 +36,16 @@ public class Task3 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    выполнения задания.
          */
+
+
+
+        Fibonacci fibonacci = new Fibonacci(20);
+        int sum = 0;
+
+        for (int x : fibonacci) {
+            sum += x;
+        }
+
+
     }
 }
