@@ -3,15 +3,15 @@ package ru.avalon.java.j20.labs.models;
 /**
  * Модель представления о точке.
  */
-public class Point {
+public class Point <T extends Number> {
     /**
      * Абсцисса точки.
      */
-    private final Number x;
+    private final T x;
     /**
      * Ордината точки.
      */
-    private final Number y;
+    private final T y;
 
     /**
      * Основной конструктор класса.
@@ -19,7 +19,7 @@ public class Point {
      * @param x абсцисса точки
      * @param y ордината точки
      */
-    public Point(Number x, Number y) {
+    public Point(T x, T y) {
         this.x = x;
         this.y = y;
     }
@@ -29,7 +29,7 @@ public class Point {
      *
      * @return x-координата точки.
      */
-    public Number getX() {
+    public T getX() {
         return x;
     }
 
@@ -38,7 +38,7 @@ public class Point {
      *
      * @return y-координата точки.
      */
-    public Number getY() {
+    public T getY() {
         return y;
     }
 

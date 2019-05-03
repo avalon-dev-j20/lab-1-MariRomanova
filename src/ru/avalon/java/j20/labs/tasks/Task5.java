@@ -22,7 +22,7 @@ public class Task5 implements Task {
      */
     @Override
     public void run() {
-        final int[] array = arrayFactory.getInstance(20);
+        final Integer[] array = arrayFactory.getInstance(20);
 
         Integer[] objectArray = new Integer[array.length]; // преобразование в массив Integer для последующего использования в обобщенных методах
         for(int ctr = 0; ctr < array.length; ctr++) {

@@ -40,6 +40,8 @@ public class Task3 implements Task {
 
 
         Fibonacci fibonacci = new Fibonacci(20);
+        Fibonacci fibonacci2 = new Fibonacci(20);
+        Fibonacci fibonacci3 = new Fibonacci(20);
         int sum = 0;
 
         for (int x : fibonacci) {

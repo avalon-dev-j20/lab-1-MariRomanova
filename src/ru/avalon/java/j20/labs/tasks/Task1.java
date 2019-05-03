@@ -24,22 +24,11 @@ public class Task1 implements Task {
      */
     @Override
     public void run() {
-        int[] array = arrayFactory.getInstance(20); //получение массива int
+        Integer[] array = arrayFactory.getInstance(20);
 
-        Integer[] objectArray = new Integer[array.length]; // преобразование в массив Integer для последующего использования в обобщенных методах
-        for(int ctr = 0; ctr < array.length; ctr++) {
-            objectArray[ctr] = Integer.valueOf(array[ctr]);
-        }
-
-        int min = (int) Numbers.min(objectArray);
-        int max = (int) Numbers.max(objectArray);
-        double avg = Numbers.avg(objectArray);
-
-        Double[] doubleArray = {.01, .04, 4.33, 11.22};
-        int minDoubleArray = (int) Numbers.min(objectArray);
-        int maxDoubleArray = (int) Numbers.max(objectArray);
-        double avgDoubleArray = Numbers.avg(objectArray);
-
+        int min = Numbers.min(array);
+        int max = Numbers.max(array);
+        double avg = Numbers.avg(array);
 
         /*
          * TODO(Студент): Выполните задание №1

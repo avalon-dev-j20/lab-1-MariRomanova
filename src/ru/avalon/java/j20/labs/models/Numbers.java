@@ -15,15 +15,12 @@ public final class Numbers {
      * @param values массив чисел
      * @return сумма элементов массива
      */
-    public static Number sum(Number[] values) {
-        Number sum = 0;
-        if (values instanceof Double[]) {
-            for (Number value : values) sum = sum.doubleValue() + value.doubleValue();
-            return sum;
-        } else if (values instanceof Integer[]) {
-            for (Number value : values) sum = sum.intValue() + value.intValue();
-            return sum;
-        } else return null;
+    public static <T extends Number> double sum(T[] values) {
+        double sum = 0;
+        for (T value : values) {
+            sum += value.doubleValue();
+        }
+        return sum;
     }
 
     /**
@@ -33,8 +30,8 @@ public final class Numbers {
      * @param values массив значений
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
-    public static double avg(Number[] values) {
-        return (double) sum(values).doubleValue() / values.length;
+    public static <T extends Number> double avg(T[] values) {
+        return sum(values) / values.length;
     }
 
     /**
@@ -44,12 +41,8 @@ public final class Numbers {
      * @param b второе значение
      * @return большее из двух значений
      */
-    public static int maxInt(int a, int b) {
-        return a > b ? a : b;
-    }
-
-    public static double maxDouble(double a, double b) {
-        return a > b ? a : b;
+    public static <T extends Number> T max(T a, T b) {
+        return a.doubleValue() > b.doubleValue() ? a : b;
     }
 
     /**
@@ -58,19 +51,12 @@ public final class Numbers {
      * @param values массив значений
      * @return максимальное значение массива
      */
-    public static Number max(Number[] values) {
-        Number result = values[0].intValue();
-        if (values instanceof Double[]) {
-            for (int i = 1; i < values.length; i++) {
-                result = maxDouble(result.doubleValue(), values[i].doubleValue());
-            }
-            return result;
-        } else if (values instanceof Integer[]) {
-            for (int i = 1; i < values.length; i++) {
-                result = maxInt(result.intValue(), values[i].intValue());
-            }
-            return result;
-        } else return null;
+    public static <T extends Number> T max(T[] values) {
+        T result = values[0];
+        for (int i = 1; i < values.length; i++) {
+            result = max(result, values[i]);
+        }
+        return result;
     }
 
 
@@ -81,12 +67,10 @@ public final class Numbers {
          * @param b второе значение
          * @return меньшее из дух значений
          */
-        public static int minInt(int a, int b) {
-            return a < b ? a : b;
+        public static <T extends Number> T min(T a, T b) {
+            return a.doubleValue() < b.doubleValue() ? a : b;
         }
-        public static double minDouble(double a, double b) {
-            return a < b ? a : b;
-        }
+
 
         /**
          * Выполняет поиск минимального значения массива.
@@ -95,19 +79,12 @@ public final class Numbers {
          * @return минимальное значение массива
          */
 
-        public static Number min(Number[] values) {
-            Number result = values[0].intValue();
-            if (values instanceof Double[]) {
-                for (int i = 1; i < values.length; i++) {
-                    result = minDouble(result.doubleValue(), values[i].doubleValue());
-                }
-                return result;
-            } else if (values instanceof Integer[]) {
-                for (int i = 1; i < values.length; i++) {
-                    result = minInt(result.intValue(), values[i].intValue());
-                }
-                return result;
-            } else return null;
+        public static <T extends Number> T min(T[] values) {
+            T result = values[0];
+            for (int i = 1; i < values.length; i++) {
+                result = min(result, values[i]);
+            }
+            return result;
         }
 
 
